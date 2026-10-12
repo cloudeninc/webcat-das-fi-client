@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "rootDir": "./src",
     "outDir": "./lib",
-    "declaration": true
+    "declaration": true,
+    "types": ["node"]
   },
-  "exclude": [
-    "example"
+  "include": [
+    "src"
   ]
 }
