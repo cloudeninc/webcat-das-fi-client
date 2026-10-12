@@ -1,18 +1,15 @@
 {
   "name": "example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "ts-node example.ts"
+    "test": "tsx example.ts"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
-    "webcat-das-fi-client": "1.0.1"
+    "webcat-das-fi-client": "^2.0.0"
   },
   "devDependencies": {
-    "ts-node": "^8.3.0"
+    "tsx": "^4.0.0"
   }
 }
