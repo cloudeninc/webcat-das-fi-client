@@ -111,6 +111,10 @@ test('times out when the server never answers', async () => {
   }
 })
 
+test('rejects, rather than throwing uncaught, when the query cannot be sent', async () => {
+  await assert.rejects(dasQueryDomainAvailable('free.fi', { server: '127.0.0.1', port: 70000 }), { code: 'ERR_SOCKET_BAD_PORT' })
+})
+
 test('ignores packets from another source', async () => {
   const impostor = dgram.createSocket('udp4')
   await new Promise((resolve) => impostor.bind(0, '127.0.0.1', resolve))

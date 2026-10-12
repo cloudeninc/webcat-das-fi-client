@@ -141,9 +141,16 @@ export async function dasQueryDomain(domain: string, options: DasQueryOptions = 
 
     function send() {
       attempts++
-      socket.send(query, port, address, (err) => {
-        if (err) finish(err)
-      })
+      // send() reports some errors, such as an invalid port, by throwing rather than through
+      // its callback, and this runs outside the Promise executor.
+      try {
+        socket.send(query, port, address, (err) => {
+          if (err) finish(err)
+        })
+      } catch (err) {
+        finish(err as Error)
+        return
+      }
       timer = setTimeout(() => {
         if (attempts <= retries) {
           send()
