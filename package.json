@@ -12,9 +12,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && node --test test/*.test.mjs",
-    "test:live": "npm run build && node test/live.mjs",
-    "prepublishOnly": "npm test"
+    "test": "bun run build && node --test test/*.test.mjs",
+    "test:live": "bun run build && node test/live.mjs",
+    "prepublishOnly": "bun run test"
   },
   "repository": {
     "type": "git",

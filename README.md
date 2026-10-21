@@ -14,7 +14,9 @@ You can find more information about the DAS service at https://www.traficom.fi/e
 
 ## Installation
 
-    npm install webcat-das-fi-client
+    bun add webcat-das-fi-client
+
+It is an ordinary npm package, so `npm install webcat-das-fi-client` works as well.
 
 Requires Node.js 18 or later.
 
@@ -81,6 +83,16 @@ query.
 
 ## Development
 
-    npm install
-    npm test            # unit tests against a fake DAS server
-    npm run test:live   # queries the real das.domain.fi
+The repository uses [bun](https://bun.sh) as its package manager. The tests run under Node.js, which
+the library targets.
+
+    bun install
+    bun run test            # unit tests against a fake DAS server
+    bun run test:live       # queries the real das.domain.fi
+
+## Publishing
+
+    bun publish
+
+`bun publish` uses the npm registry and the login in `~/.npmrc`, and runs `prepublishOnly` first,
+which builds the library and runs the unit tests.
